@@ -1,6 +1,10 @@
 {% block footer %}
   <footer>
-    {{ acfwidget('content_footer', 'footer_widget-2') }}
-    {{ acfwidget('logo_footer', 'footer_widget-2') }}
+    <div class="footer-contact">
+      {{ acfwidget('content_footer', 'footer_widget-2') }}
+    </div>
+    <div class="footer-logo">
+      <img src="{{ acfwidget('logo_footer', 'footer_widget-2') }}" />
+    </div>
   </footer>
 {% endblock %}
