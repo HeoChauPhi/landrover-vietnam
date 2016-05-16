@@ -1,0 +1,5 @@
+{% for posts in post %}
+  <h3><a href="{{posts.link}}">{{ posts.title }}</a></h3>
+  {{posts.content}}
+{% endfor %}
+{% include 'pagination.twig' %}
