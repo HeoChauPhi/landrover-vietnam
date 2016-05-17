@@ -108,10 +108,10 @@ class header_Widget extends WP_Widget {
     $title      = esc_attr( $instance['title'] );
     ?>
     <p>
-      <label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:'); ?></label> 
+      <label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:'); ?></label>
       <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $title; ?>" />
     </p>
-    <?php 
+    <?php
   }
 }
 
@@ -147,16 +147,16 @@ class footer_Widget extends WP_Widget {
     $title      = esc_attr( $instance['title'] );
     ?>
     <p>
-      <label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:'); ?></label> 
+      <label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:'); ?></label>
       <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $title; ?>" />
     </p>
-    <?php 
+    <?php
   }
 }
 
 /* Add custom post type */
 function create_my_post_types() {
-  register_post_type( 'cars', 
+  register_post_type( 'cars',
     array(
       'labels' => array(
         'name' => __( 'Car' ),
@@ -171,7 +171,7 @@ function create_my_post_types() {
     )
   );
 
-  register_post_type( 'gallery', 
+  register_post_type( 'gallery',
     array(
       'labels' => array(
         'name' => __( 'Gallery' ),
@@ -217,7 +217,7 @@ function create_custom_taxonomy() {
     'show_in_nav_menus'          => true,
     'show_tagcloud'              => true,
   );
-  register_taxonomy('catmovie', 'cars', $args_car);
+  register_taxonomy('catcar', 'cars', $args_car);
   register_taxonomy('catgallery', 'gallery', $args_gallery);
 }
 add_action( 'init', 'create_custom_taxonomy', 0 );

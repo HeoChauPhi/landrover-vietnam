@@ -1,0 +1,23 @@
+{% block sidebar %}
+<ul class="cat-list">
+{{categories.name}}
+{% for cat in categories %}
+    <li><a href="{{cat.link}}">{{cat.name}}</a></li>
+    {% if cat.children %}
+    <ul class="cat-list-children">
+        {% for child in cat.children %}
+            <li><a href="{{child.link}}">{{child.name}}</a></li>
+            {% if child.children %}
+            <ul class="cat-list-children">
+                {% for sub in child.children %}
+                  <li><a href="{{sub.link}}">{{sub.name}}</a></li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        {% endfor %}
+    </ul>
+    {% endif %}
+{% endfor %}
+</ul>
+{% endblock %}
+

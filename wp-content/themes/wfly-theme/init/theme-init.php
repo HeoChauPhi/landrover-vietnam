@@ -62,7 +62,7 @@ function wf_plugin_activation() {
 function spice_get_widget_id($widget_instance) {
   if ($widget_instance->number=="__i__"){
     echo "<p><strong>Widget ID is</strong>: Pls save the widget first!</p>"   ;
-  } else { 
+  } else {
     echo "<p><strong>Widget ID is: </strong>" .$widget_instance->id. "</p>";
   }
 }
@@ -101,10 +101,10 @@ class wf_Widget extends WP_Widget {
     $title      = esc_attr( $instance['title'] );
     ?>
     <p>
-      <label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:'); ?></label> 
+      <label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:'); ?></label>
       <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $title; ?>" />
     </p>
-    <?php 
+    <?php
   }
 }
 
@@ -146,7 +146,7 @@ function related($custom_cat) {
       'terms' => $terms
       )
     )
-  );  
+  );
   $loop_custom = Timber::get_posts($myposts);
   return $loop_custom;
 }
@@ -183,6 +183,9 @@ function wf_twig_data($data){
   $data['sidebar'] = TimberHelper::function_wrapper( 'sidebar' );
   $data['shortcode'] = TimberHelper::function_wrapper( 'shortcode' );
   $data['acfwidget'] = TimberHelper::function_wrapper( 'acfwidget' );
+  $data['categories'] = Timber::get_terms( 'catcar', array( 'parent' => 0, 'orderby' => 'slug', 'hide_empty' => false ) );
+
+
 
   return $data;
 }
