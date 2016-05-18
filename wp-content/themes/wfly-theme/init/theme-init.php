@@ -168,6 +168,27 @@ function acfwidget($name, $widgetid) {
   return;
 }
 
+function custom_tax($taxonomy) {
+  $terms = get_terms( $taxonomy, array( 'parent' => 0, 'orderby' => 'slug', 'hide_empty' => false ));
+  if ( ! empty( $terms ) && ! is_wp_error( $terms ) ){
+    echo '<ul>';
+    foreach ( $terms as $term ) {
+      echo '<li>' . $term->name . $term->term_id .'</li>';
+
+      $subterms = get_terms($taxonomy, array('parent' => $term->term_id, 'orderby' => 'slug', 'hide_empty' => false));
+      $children = get_term_children($term->term_id, get_query_var('catcar')); // get children
+      if (sizeof($children)>0) {
+        echo '<ul>';
+        foreach ($subterms as $term) {
+          echo '<li>' . $term->name . $term->term_id .'</li>';
+        }
+        echo '</ul>';
+      }
+    }
+    echo '</ul>';
+  }
+}
+
 add_filter('timber_context', 'wf_twig_data');
 function wf_twig_data($data){
   // Theme setting
@@ -183,9 +204,8 @@ function wf_twig_data($data){
   $data['sidebar'] = TimberHelper::function_wrapper( 'sidebar' );
   $data['shortcode'] = TimberHelper::function_wrapper( 'shortcode' );
   $data['acfwidget'] = TimberHelper::function_wrapper( 'acfwidget' );
+  $data['customtax'] = TimberHelper::function_wrapper( 'custom_tax' );
   $data['categories'] = Timber::get_terms( 'catcar', array( 'parent' => 0, 'orderby' => 'slug', 'hide_empty' => false ) );
-
-
 
   return $data;
 }

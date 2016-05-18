@@ -221,4 +221,30 @@ function create_custom_taxonomy() {
   register_taxonomy('catgallery', 'gallery', $args_gallery);
 }
 add_action( 'init', 'create_custom_taxonomy', 0 );
+
+/*$term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'catcar' ) ); // get current term
+
+$parent = get_term($term->parent, get_query_var('catcar') ); // get parent term
+
+$children = get_term_children($term->term_id, get_query_var('catcar')); // get children
+
+if(($parent->term_id!="" && sizeof($children)>0)) {
+
+  // has parent and child
+  echo 'has parent and child';
+
+}elseif(($parent->term_id!="") && (sizeof($children)==0)) {
+
+  // has parent, no child
+  echo 'has parent, no child';
+
+}elseif(($parent->term_id=="") && (sizeof($children)>0)) {
+
+  // no parent, has child
+  echo 'no parent, has child';
+
+}*/
+
+//$hierarchy = get_terms( 'catcar', array( 'parent' => 0, 'orderby' => 'slug', 'hide_empty' => false )  );
+
 ?>
