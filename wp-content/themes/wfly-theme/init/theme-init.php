@@ -168,25 +168,52 @@ function acfwidget($name, $widgetid) {
   return;
 }
 
-function custom_tax($taxonomy) {
-  $terms = get_terms( $taxonomy, array( 'parent' => 0, 'orderby' => 'slug', 'hide_empty' => false ));
-  if ( ! empty( $terms ) && ! is_wp_error( $terms ) ){
-    echo '<ul>';
-    foreach ( $terms as $term ) {
-      echo '<li>' . $term->name . $term->term_id .'</li>';
+function customtax($tax) {
+  ob_start();
+  $args = array(
+    'parent' => 0,
+    'orderby' => 'slug',
+    'hide_empty' => false
+  );
 
-      $subterms = get_terms($taxonomy, array('parent' => $term->term_id, 'orderby' => 'slug', 'hide_empty' => false));
-      $children = get_term_children($term->term_id, get_query_var('catcar')); // get children
-      if (sizeof($children)>0) {
-        echo '<ul>';
-        foreach ($subterms as $term) {
-          echo '<li>' . $term->name . $term->term_id .'</li>';
-        }
-        echo '</ul>';
-      }
+  $terms = get_terms( $tax, $args);
+  if ( ! empty( $terms ) && ! is_wp_error( $terms ) ){
+    //$timberterms = Timber::get_terms( $tax, $args);
+    echo '<ul class="listcat listcat-'.$tax.'">';
+    foreach ( $terms as $term ) {
+      $subterms1 = get_terms($tax, array('parent' => $term->term_id, 'orderby' => 'slug', 'hide_empty' => false));
+
+      if (sizeof($subterms1) > 0) {
+        echo '<li class="listcat-item"><a href="'.esc_url( get_term_link( $term ) ).'">' . $term->name . '</a>';
+
+        // sub term 1
+        echo '<ul class="subterm">';
+          foreach ($subterms1 as $term) {
+            $subterms2 = get_terms($tax, array('parent' => $term->term_id, 'orderby' => 'slug', 'hide_empty' => false));
+
+            if (sizeof($subterms2) > 0) {
+              echo '<li class="listcat-item has-subterm"><a href="'.esc_url( get_term_link( $term ) ).'">' . $term->name . '</a><span class="icon-subterm"></span>';
+
+              // sub term 2
+              echo '<ul class="subterm">';
+              foreach ($subterms2 as $term) {
+                echo '<li class="listcat-item"><a href="'.esc_url( get_term_link( $term ) ).'">' . $term->name . '</a></li>';
+              }
+              echo '</ul></li>';
+            } else {
+              echo '<li class="listcat-item"><a href="'.esc_url( get_term_link( $term ) ).'">' . $term->name . '</a></li>';
+            }          
+          }
+        echo '</ul></li>';
+      } else {
+        echo '<li class="listcat-item"><a href="'.esc_url( get_term_link( $term ) ).'">' . $term->name . '</a></li>';
+      }  
     }
     echo '</ul>';
   }
+  $content = ob_get_contents();
+  ob_end_clean();
+  return $content;
 }
 
 add_filter('timber_context', 'wf_twig_data');
@@ -204,8 +231,8 @@ function wf_twig_data($data){
   $data['sidebar'] = TimberHelper::function_wrapper( 'sidebar' );
   $data['shortcode'] = TimberHelper::function_wrapper( 'shortcode' );
   $data['acfwidget'] = TimberHelper::function_wrapper( 'acfwidget' );
-  $data['customtax'] = TimberHelper::function_wrapper( 'custom_tax' );
-  $data['categories'] = Timber::get_terms( 'catcar', array( 'parent' => 0, 'orderby' => 'slug', 'hide_empty' => false ) );
+  $data['customtax'] = TimberHelper::function_wrapper( 'customtax' );
+  //$data['categories'] = Timber::get_terms( 'catcar', array( 'parent' => 0, 'orderby' => 'slug', 'hide_empty' => false ) );
 
   return $data;
 }

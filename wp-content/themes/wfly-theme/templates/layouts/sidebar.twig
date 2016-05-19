@@ -1,4 +1,6 @@
-{% block sidebar %}
-{#{{ customtax('catcar') }}#}
-{% endblock %}
+{% if customtax('catcar') %}
+  <div class="block-listcat">
+    {{ customtax('catcar') }}
+  </div>
+{% endif %}
 
