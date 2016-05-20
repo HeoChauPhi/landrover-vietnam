@@ -1,5 +1,16 @@
 {% extends 'layout.twig' %}
 
-{% block content %}
+{% block feature %}
+  <div class="feature">
+    {{ shortcode('[post_by_cat post_type="gallery" per_page=1 tax="catgallery" terms="slideshow"]') }}
+  </div>
+{% endblock %}
 
+{% block content %}
+  <div class="best-cars">
+    <h2 class="block-title">Sản phẩm bán chạy</h2>
+    <div class="block-content">
+      {{ shortcode('[best_post post_type="cars" per_page=1]') }}
+    </div>
+  </div>
 {% endblock %}

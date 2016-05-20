@@ -1,6 +1,14 @@
-{% if customtax('catcar') %}
-  <div class="block-listcat">
-    {{ customtax('catcar') }}
-  </div>
-{% endif %}
+{% for item in acfwidget('acf_sidebars', 'wf_widget-4') %}
+  <div class="block-cat">
+    {% if item.acf_shortcode_title %}
+      <h2 class="block-title">{{ item.acf_shortcode_title }}</h2>
+    {% endif %}
+    {% if item.acf_shortcode_content %}
+      <div class="block-content">
+        {{ shortcode(item.acf_shortcode_content) }}
+      </div>
+    {% endif %}
+  </div>  
+{% endfor %}
+
 

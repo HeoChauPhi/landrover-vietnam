@@ -21,6 +21,9 @@
         {% include 'header.twig' %}
       {% endblock %}
 
+      {% block feature %}
+      {% endblock %}
+
       <main role="main">
         {% if block('sidebar') %}
         <div class="main-content has-sidebar">

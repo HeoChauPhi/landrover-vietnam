@@ -1,12 +1,6 @@
 {% for post in posts %}
-  {% if post.post_type == 'gallery' %}
-    {% for image in post.get_field('gallery_image') %}
-      <img src="{{ TimberImage(image) }}" />
-    {% endfor %}
-  {% else %}
   <div class="feature-picture">
     <img src="{{post.thumbnail.src}}" class="feature" />
   </div>
   <h3><a href="{{post.link}}">{{ post.title }}</a></h3>
-  {% endif %}
 {% endfor %}

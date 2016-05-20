@@ -131,12 +131,12 @@ if ( ! class_exists( 'Timber' ) ) {
 // Get custom function template with Timber
 Timber::$dirname = array('templates', 'templates/pages', 'templates/layouts', 'templates/views');
 
-function related($custom_cat) {
+function related($custom_cat, $showpost = -1) {
   global $post;
   $argss = array('orderby' => 'name', 'order' => 'ASC', 'fields' => 'ids');
   $terms = wp_get_post_terms( $post->ID, $custom_cat, $argss );
   $myposts = array(
-    'showposts' => -1,
+    'showposts' => $showpost,
     'post_type' => 'any',
     'post__not_in' => array($post->ID),
     'tax_query' => array(
@@ -156,20 +156,24 @@ function sidebar($name) {
   return;
 }
 
-function shortcode($name, $value) {
-  echo do_shortcode('['.$name.' '.$value.']');
+function shortcode($name) {
+  echo do_shortcode($name);
   return;
 }
 
 function acfwidget($name, $widgetid) {
   if (get_field($name, 'widget_'.$widgetid)) {
-    echo get_field($name, 'widget_'.$widgetid);
+    $afcfield = get_field($name, 'widget_'.$widgetid);
+    if (is_array($afcfield)) {
+      return $afcfield;
+    } else {
+      echo do_shortcode($afcfield);
+    }
   }
   return;
 }
 
-function customtax($tax) {
-  ob_start();
+function taxvalue($tax) {
   $args = array(
     'parent' => 0,
     'orderby' => 'slug',
@@ -211,6 +215,25 @@ function customtax($tax) {
     }
     echo '</ul>';
   }
+}
+
+function customtax($customtax) {
+  ob_start();
+  
+  taxvalue($tax = $customtax);
+
+  $content = ob_get_contents();
+  ob_end_clean();
+  return $content;
+}
+
+add_shortcode( 'customtax', 'create_customtax' );
+function create_customtax($attrs) {
+  extract(shortcode_atts (array(
+    'tax_name' => ''
+  ), $attrs));
+  ob_start();
+    taxvalue($tax = $tax_name);
   $content = ob_get_contents();
   ob_end_clean();
   return $content;
@@ -232,7 +255,6 @@ function wf_twig_data($data){
   $data['shortcode'] = TimberHelper::function_wrapper( 'shortcode' );
   $data['acfwidget'] = TimberHelper::function_wrapper( 'acfwidget' );
   $data['customtax'] = TimberHelper::function_wrapper( 'customtax' );
-  //$data['categories'] = Timber::get_terms( 'catcar', array( 'parent' => 0, 'orderby' => 'slug', 'hide_empty' => false ) );
 
   return $data;
 }
