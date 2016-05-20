@@ -21,6 +21,9 @@
  * @since    Timber 0.1
  */
 
+
+get_term_name('jaguar', 'catcar');
+
 $context = Timber::get_context();
 $post = new TimberPost();
 $context['post'] = $post;

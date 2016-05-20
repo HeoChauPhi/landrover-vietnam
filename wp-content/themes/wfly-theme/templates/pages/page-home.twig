@@ -10,7 +10,15 @@
   <div class="best-cars">
     <h2 class="block-title">Sản phẩm bán chạy</h2>
     <div class="block-content">
-      {{ shortcode('[best_post post_type="cars" per_page=1]') }}
+      {{ shortcode('[best_post post_type="cars" per_page=8]') }}
     </div>
   </div>
+  
+  {% for term in get_term_name('jaguar', 'catcar') %}
+    <h2 class="block-title term-{{ term.slug }}"><a href="{{ term.link }}">{{ term.name }}</a></h2>
+  {% endfor %}
+  {{ shortcode('[post_by_cat post_type="cars" per_page=8 tax="catcar" terms="jaguar"]') }}
+  
+  <h2>landrover</h2>
+  {{ shortcode('[post_by_cat post_type="cars" per_page=8 tax="catcar" terms="landrover"]') }}
 {% endblock %}

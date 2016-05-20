@@ -1,0 +1,10 @@
+{% block content %}
+  {% for caritem in post.get_field('car_info') %}
+    {% if caritem.car_status %}
+      <div class="car-status"><label>Trạng thái: </label>{{ caritem.car_status }}</div>
+    {% else %}
+      <div class="car-status"><label>Trạng thái: </label>Liên hệ</div>
+    {% endif %}
+  {% endfor %}
+  <div class="car-price"><label>Giá: </label>{{ post.car_price }}</div>
+{% endblock %}

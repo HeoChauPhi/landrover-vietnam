@@ -98,8 +98,8 @@ function create_best_post($attrs) {
     $args = array(
       'post_type' => $post_type,
       'posts_per_page' => $per_page,
-      'order' => 'DESC',
       'orderby' => 'post_views',
+      'order' => 'DESC',
     );
     $context['posts'] = Timber::get_posts($args);
     Timber::render('post-best.twig', $context);

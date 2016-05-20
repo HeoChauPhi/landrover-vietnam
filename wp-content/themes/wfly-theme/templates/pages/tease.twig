@@ -1,5 +1,4 @@
 {% block content %}
-  {{ shortcode('[post-views]') }}
   <h2>{{ post.title }}</h2>
   <p class="blog-author">
     <span>By</span><a href="{{post.author.path}}"> {{ post.author.name }} </a> - {{ post.post_date|date}}
@@ -41,5 +40,4 @@
 
   {% include 'comments.twig' %}
   {{ function('comment_form') }}
-  {{acf}}
 {% endblock %}

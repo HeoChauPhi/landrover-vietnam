@@ -173,6 +173,13 @@ function acfwidget($name, $widgetid) {
   return;
 }
 
+function acfobject($name, $object) {
+  $field = get_field_object($name);
+  $field_object = $field[$object];
+  echo $field_object;
+  return;
+}
+
 function taxvalue($tax) {
   $args = array(
     'parent' => 0,
@@ -239,6 +246,18 @@ function create_customtax($attrs) {
   return $content;
 }
 
+function get_term_name($slug, $tax){
+  $term = get_term_by('slug', $slug, $tax); 
+  $term_name = array(
+    array(
+      'name' => $term->name,
+      'slug' => $term->slug,
+      'link' => esc_url( get_term_link( $term ) ),
+    )
+  );
+  //print_r($term_name);
+  return $term_name;
+}
 add_filter('timber_context', 'wf_twig_data');
 function wf_twig_data($data){
   // Theme setting
@@ -248,13 +267,14 @@ function wf_twig_data($data){
   $data['site_logo'] = new TimberImage($logo);
   $data['site_favicon'] = new TimberImage($favicon);
   $data['menu'] = new TimberMenu();
-  $data['acf'] = get_field('test_acf', 'text-2');
 
   $data['related'] = TimberHelper::function_wrapper( 'related' );
   $data['sidebar'] = TimberHelper::function_wrapper( 'sidebar' );
   $data['shortcode'] = TimberHelper::function_wrapper( 'shortcode' );
   $data['acfwidget'] = TimberHelper::function_wrapper( 'acfwidget' );
+  $data['acfobject'] = TimberHelper::function_wrapper( 'acfobject' );
   $data['customtax'] = TimberHelper::function_wrapper( 'customtax' );
+  $data['get_term_name'] = TimberHelper::function_wrapper( 'get_term_name' );
 
   return $data;
 }
