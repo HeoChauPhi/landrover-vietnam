@@ -1,10 +1,52 @@
 {% block content %}
-  {% for caritem in post.get_field('car_info') %}
-    {% if caritem.car_status %}
-      <div class="car-status"><label>Trạng thái: </label>{{ caritem.car_status }}</div>
-    {% else %}
-      <div class="car-status"><label>Trạng thái: </label>Liên hệ</div>
-    {% endif %}
-  {% endfor %}
-  <div class="car-price"><label>Giá: </label>{{ post.car_price }}</div>
+  <div class="post post-{{ post.post_type }}">
+    <div class="post-car-gallery">
+      {% for image in post.get_field('car_gallery') %}
+        <img src="{{ TimberImage(image) }}" />
+      {% endfor %}  
+    </div>
+    <div class="post-car-header">
+      <h3><a href="{{post.link}}">{{ post.title }}</a></h3>
+      {% if post.car_price %}
+        <div class="car-price">
+          <label>Giá: </label>{{ post.car_price }} {{ currency_choices }}
+        </div>
+      {% else %}
+        <div class="car-price"><label>Giá: </label>Liên hệ</div>
+      {% endif %}
+      {% if post.car_contact %}
+        <div class="car-contact">
+          <label>Liên hệ: </label>
+          <div class="car-name">{{ post.car_contact }}</div>
+          <div class="car-phone">{{ post.car_phone }}</div>
+        </div>
+      {% endif %}
+    </div>
+    <div class="post-car-info">
+      <h3 class="post-car-info--title">Mô tả sản phẩm</h3>
+      <div class="post-car-info--content">
+        {% if post.get_field('car_info') %}
+          {% for caritem in post.get_field('car_info') %}
+            <div class="car-item car-year"><label>Năm sản xuất: </label><span>{{ caritem.car_year }}</span></div>
+            {% if caritem.car_status %}
+              <div class="car-item car-status"><label>Trạng thái: </label><span>{{ caritem.car_status }}</span></div>
+            {% else %}
+              <div class="car-item car-status"><label>Trạng thái: </label><span>Liên hệ</span></div>
+            {% endif %}
+            <div class="car-item car-guarantee"><label>Bảo hành: </label><span>{{ caritem.car_guarantee }}</span></div>
+            <div class="car-item car-color"><label>Màu xe: </label><span>{{ caritem.car_color }}</span></div>
+            <div class="car-item car-give"><label>Giao xe: </label><span>{{ caritem.car_give }}</span></div>
+            <div class="car-item car-ins"><label>Hỗ trợ trả góp: </label><span>{{ caritem.car_ins }}</span></div>
+          {% endfor %}
+        {% else %}
+          <div class="car-item car-year"><label>Năm sản xuất: </label><span>Đang cập nhật</span></div>
+          <div class="car-item car-status"><label>Trạng thái: </label><span>Đang cập nhật</span></div>
+          <div class="car-item car-guarantee"><label>Bảo hành: </label><span>Đang cập nhật</span></div>
+          <div class="car-item car-color"><label>Màu xe: </label><span>Đang cập nhật</span></div>
+          <div class="car-item car-give"><label>Giao xe: </label><span>Đang cập nhật</span></div>
+          <div class="car-item car-ins"><label>Hỗ trợ trả góp: </label><span>Đang cập nhật</span></div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
 {% endblock %}

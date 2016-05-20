@@ -28,7 +28,7 @@ if (!isset($paged) || !$paged){
 }
 
 $context = Timber::get_context();
-$count = -1;
+$count = 8;
 $context['count'] = $count;
 $context['paged'] = $paged;
 $taxonomy = new TimberTerm();

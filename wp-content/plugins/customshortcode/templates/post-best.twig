@@ -1,24 +1,26 @@
 {% for post in posts %}
   {% if post.post_type == 'cars' %}
-    {% for image in post.get_field('car_gallery') %}
-      <img src="{{ TimberImage(image) }}" />
-    {% endfor %}
-    <h3><a href="{{post.link}}">{{ post.title }}</a></h3>
-    {% if post.get_field('car_info') %}
-      {% for caritem in post.get_field('car_info') %}
-        {% if caritem.car_status %}
-          <div class="car-status"><label>Trạng thái: </label>{{ caritem.car_status }}</div>
-        {% else %}
-          <div class="car-status"><label>Trạng thái: </label>Liên hệ</div>
-        {% endif %}
+    <div class="post post-{{ post.post_type }}">
+      {% for image in post.get_field('car_gallery') %}
+        <img src="{{ TimberImage(image) }}" />
       {% endfor %}
-    {% else %}
-      <div class="car-status"><label>Trạng thái: </label>Liên hệ</div>
-    {% endif %}
-    {% if post.car_price %}
-      <div class="car-price"><label>Giá: </label>{{ post.car_price }}</div>
-    {% else %}
-      <div class="car-price"><label>Giá: </label>Liên hệ</div>
-    {% endif %}
+      <h3><a href="{{post.link}}">{{ post.title }}</a></h3>
+      {% if post.get_field('car_info') %}
+        {% for caritem in post.get_field('car_info') %}
+          {% if caritem.car_status %}
+            <div class="car-status"><label>Trạng thái: </label>{{ caritem.car_status }}</div>
+          {% else %}
+            <div class="car-status"><label>Trạng thái: </label>Liên hệ</div>
+          {% endif %}
+        {% endfor %}
+      {% else %}
+        <div class="car-status"><label>Trạng thái: </label>Liên hệ</div>
+      {% endif %}
+      {% if post.car_price %}
+        <div class="car-price"><label>Giá: </label>{{ post.car_price }}</div>
+      {% else %}
+        <div class="car-price"><label>Giá: </label>Liên hệ</div>
+      {% endif %}
+    </div>
   {% endif %}
 {% endfor %}

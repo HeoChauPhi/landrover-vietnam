@@ -1,5 +1,12 @@
-{% for posts in post %}
-  <h3><a href="{{posts.link}}">{{ posts.title }}</a></h3>
-  {{posts.content}}
+{% for post in posts %}
+  <div class="post post-{{ post.post_type }}">
+    <div class="post-picture">
+      <img src="{{post.thumbnail.src}}" class="feature" />
+    </div>
+    <div class="post-content">
+      <h3><a href="{{post.link}}">{{ post.title }}</a></h3>
+      {{post.content|excerpt(30)}}
+    </div>
+  </div>
 {% endfor %}
 {% include 'pagination.twig' %}

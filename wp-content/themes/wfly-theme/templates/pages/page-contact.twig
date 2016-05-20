@@ -1,0 +1,8 @@
+{% extends 'layout.twig' %}
+
+{% block content %}
+  {% for post in posts %}
+    {{ post.content }}
+  {% endfor %}
+  {{ shortcode('[contact-form-7 id="76" title="Contact form 1"]') }}
+{% endblock %}

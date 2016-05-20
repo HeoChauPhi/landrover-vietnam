@@ -1,0 +1,21 @@
+{% extends 'layout.twig' %}
+
+{% block content %}  
+  {% for term in get_term_name('jaguar', 'catcar') %}
+  <div class="block-cat block-{{ term.slug }}">
+    <h2 class="block-title term-{{ term.slug }}"><a href="{{ term.link }}">{{ term.name }}</a></h2>
+  {% endfor %}
+    <div class="block-content">
+      {{ shortcode('[post_by_cat post_type="cars" per_page=12 tax="catcar" terms="jaguar"]') }}
+    </div>
+  </div>
+  
+  {% for term in get_term_name('landrover', 'catcar') %}
+  <div class="block-cat block-{{ term.slug }}">
+    <h2 class="block-title term-{{ term.slug }}"><a href="{{ term.link }}">{{ term.name }}</a></h2>
+  {% endfor %}
+    <div class="block-content">
+      {{ shortcode('[post_by_cat post_type="cars" per_page=12 tax="catcar" terms="landrover"]') }}
+    </div>
+  </div>
+{% endblock %}

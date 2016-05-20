@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block content %}
-  <div class="best-cars">
+  <div class="block-cat block-best-cars">
     <h2 class="block-title">Sản phẩm bán chạy</h2>
     <div class="block-content">
       {{ shortcode('[best_post post_type="cars" per_page=8]') }}
@@ -15,10 +15,20 @@
   </div>
   
   {% for term in get_term_name('jaguar', 'catcar') %}
+  <div class="block-cat block-{{ term.slug }}">
     <h2 class="block-title term-{{ term.slug }}"><a href="{{ term.link }}">{{ term.name }}</a></h2>
   {% endfor %}
-  {{ shortcode('[post_by_cat post_type="cars" per_page=8 tax="catcar" terms="jaguar"]') }}
+    <div class="block-content">
+      {{ shortcode('[post_by_cat post_type="cars" per_page=8 tax="catcar" terms="jaguar"]') }}
+    </div>
+  </div>
   
-  <h2>landrover</h2>
-  {{ shortcode('[post_by_cat post_type="cars" per_page=8 tax="catcar" terms="landrover"]') }}
+  {% for term in get_term_name('landrover', 'catcar') %}
+  <div class="block-cat block-{{ term.slug }}">
+    <h2 class="block-title term-{{ term.slug }}"><a href="{{ term.link }}">{{ term.name }}</a></h2>
+  {% endfor %}
+    <div class="block-content">
+      {{ shortcode('[post_by_cat post_type="cars" per_page=8 tax="catcar" terms="landrover"]') }}
+    </div>
+  </div>
 {% endblock %}

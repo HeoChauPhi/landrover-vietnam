@@ -43,7 +43,7 @@ function create_list_post($attrs) {
       'paged' => $paged,
     );
     query_posts($args);
-    $context['post'] = Timber::get_posts();
+    $context['posts'] = Timber::get_posts();
     $context['pagination'] = Timber::get_pagination();
     Timber::render('list-post.twig', $context);
 

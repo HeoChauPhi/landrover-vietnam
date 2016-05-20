@@ -255,7 +255,6 @@ function get_term_name($slug, $tax){
       'link' => esc_url( get_term_link( $term ) ),
     )
   );
-  //print_r($term_name);
   return $term_name;
 }
 add_filter('timber_context', 'wf_twig_data');
