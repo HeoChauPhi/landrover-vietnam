@@ -4,13 +4,16 @@
 //
 @import "compass";
 
-// Import lib
+// Import libs
+@import 'libs/font-awesome/font-awesome';
 
 // Import base
 @import 'base/variables';
 @import 'base/color';
 @import 'base/helper';
 @import 'base/fonts';
+@import 'base/functions';
+@import 'base/mixin';
 
 //Import layout
 @import 'layout/layout';

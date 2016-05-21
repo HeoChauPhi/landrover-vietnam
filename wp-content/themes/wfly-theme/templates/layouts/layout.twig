@@ -25,27 +25,29 @@
       {% endblock %}
 
       <main role="main">
-        {% if block('sidebar') %}
-        <div class="main-content has-sidebar">
-        {% else %}
-        <div class="main-content">
-        {% endif %}
-          {% block content %}
-              <div class="container content-wrapper">
-                {{context}}
-              </div>
-          {% endblock %}
-        </div>
-
-        {% if block('sidebar') %}
-        <section class="sidebar-wrapper">
-          {% block aside %}
-            {% block sidebar %}
-              {% include 'sidebar.twig' %}
+        <div class="container">
+          {% if block('sidebar') %}
+          <div class="main-content has-sidebar">
+          {% else %}
+          <div class="main-content">
+          {% endif %}
+            {% block content %}
+                <div class="container content-wrapper">
+                  {{context}}
+                </div>
             {% endblock %}
-          {% endblock %}
-        </section>
-        {% endif %}
+          </div>
+
+          {% if block('sidebar') %}
+          <section class="sidebar-wrapper">
+            {% block aside %}
+              {% block sidebar %}
+                {% include 'sidebar.twig' %}
+              {% endblock %}
+            {% endblock %}
+          </section>
+          {% endif %}  
+        </div>
       </main>
 
       {% block footer %}

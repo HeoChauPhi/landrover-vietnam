@@ -1,0 +1,6 @@
+%hidden,
+.hidden {
+  height: 0;
+  text-indent: rem(-99999px);
+  visibility: hidden;
+}

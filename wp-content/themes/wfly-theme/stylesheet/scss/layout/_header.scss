@@ -1,0 +1,63 @@
+#header {
+  position: relative;
+}
+
+.branding {
+  max-width: 100%;
+  padding-right: rem(40px);
+}
+
+.block-header {
+  display: none;
+}
+
+.menu-icon {
+  cursor: pointer;
+  height: 100%;
+  line-height: rem(100px);
+  position: absolute;
+  right: 0;
+  text-align: center;
+  top: 0;
+  width: rem(50px);
+
+  i {
+    display: block;
+    float: left;
+    height: 100%;
+    line-height: inherit;
+    text-indent: rem(-99999px);
+    width: 100%;
+
+    &:before {
+      float: left;
+      height: 100%;
+      line-height: inherit;
+      text-indent: 0;
+      width: 100%;
+    }
+  }
+}
+
+ul.main-nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@include breakpoint(desktop) {
+  .branding,
+  .block-header {
+    display: inline-block;
+    vertical-align: middle;
+    width: 100%;
+  }
+
+  .branding {
+    max-width: 29%;
+  }
+
+  .block-header {
+    max-width: 70%;
+  }  
+}

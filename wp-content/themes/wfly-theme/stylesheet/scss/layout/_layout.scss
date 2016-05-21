@@ -1,0 +1,17 @@
+*,
+*:after,
+*:before {
+  @include box-sizing(border-box);
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 100%;
+  padding: rem(0 10px);
+
+  @include breakpoint(desktop) {
+    margin: 0 auto;
+    max-width: $container;
+  }
+}

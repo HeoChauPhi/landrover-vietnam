@@ -2,7 +2,9 @@
 
 {% block feature %}
   <div class="feature">
-    {{ shortcode('[post_by_cat post_type="gallery" per_page=1 tax="catgallery" terms="slideshow"]') }}
+    <div class="container">
+      {{ shortcode('[post_by_cat post_type="gallery" per_page=1 tax="catgallery" terms="slideshow"]') }}  
+    </div>
   </div>
 {% endblock %}
 
