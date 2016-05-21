@@ -1,0 +1,36 @@
+*,
+*:after,
+*:before {
+  @include box-sizing(border-box);
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background-color: $while;
+  color: $black;
+  font-family: 'sans-serif';
+  font-size: $base-font-size;
+}
+
+body {
+  @include arial;
+  color: $color-text;
+  font-size: rem(13px);
+}
+
+a {
+  @include transition(all 0.2s ease-in-out);
+  color: $color-link;
+  text-decoration: none;
+
+  &:hover,
+  &:active {
+    color: draken($color-link, 3%);
+  }
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+}

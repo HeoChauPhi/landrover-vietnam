@@ -1,51 +1,27 @@
 #header {
+  border-bottom: rem(2px) solid $bd-title;
   position: relative;
 }
 
 .branding {
   max-width: 100%;
   padding-right: rem(40px);
+
+  .site-image {
+    padding: rem(10px 0);
+  }
 }
 
 .block-header {
   display: none;
-}
-
-.menu-icon {
-  cursor: pointer;
-  height: 100%;
-  line-height: rem(100px);
-  position: absolute;
-  right: 0;
-  text-align: center;
-  top: 0;
-  width: rem(50px);
-
-  i {
-    display: block;
-    float: left;
-    height: 100%;
-    line-height: inherit;
-    text-indent: rem(-99999px);
-    width: 100%;
-
-    &:before {
-      float: left;
-      height: 100%;
-      line-height: inherit;
-      text-indent: 0;
-      width: 100%;
-    }
-  }
-}
-
-ul.main-nav {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+  padding: rem(10px 0);
 }
 
 @include breakpoint(desktop) {
+  #header {
+    border: none;
+  }
+
   .branding,
   .block-header {
     display: inline-block;
@@ -59,5 +35,129 @@ ul.main-nav {
 
   .block-header {
     max-width: 70%;
-  }  
+  }
+
+  #main-navigation {
+    &:after {
+      clear: both;
+      content: ".";
+      display: block;
+      height: 0;
+      line-height: 0;
+      visibility: hidden;
+    }
+  } 
+}
+
+.menu-icon {
+  @include transition(all 0.2s ease-in-out);
+  cursor: pointer;
+  height: 100%;
+  line-height: rem(84px);
+  position: absolute;
+  right: 0;
+  text-align: center;
+  top: 0;
+  width: rem(50px);
+  z-index: 9;
+
+  i {
+    display: block;
+    float: left;
+    height: 100%;
+    line-height: inherit;
+    text-indent: rem(-99999px);
+    width: 100%;
+
+    &:before {
+      @include transition(all 0.2s ease-in-out);
+      color: $color-text;
+      float: left;
+      font-size: rem(25px);
+      height: 100%;
+      line-height: inherit;
+      text-indent: 0;
+      width: 100%;
+    }
+  }
+
+  &:hover {
+    background-color: $color-link;
+
+    i:before {
+      color: $while;
+    }
+  }
+
+  @include breakpoint(desktop) {
+    display: none !important;
+  }
+}
+
+ul.main-nav {
+  background-color: $bg-menu;
+  display: none;
+  left: 0;
+  list-style: none;
+  margin: 0;
+  max-width: 100%;
+  padding: 0;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  width: 100%;
+
+  li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+
+    a {
+      color: $color-text;
+      display: block;
+      padding: 10px 11px;
+      position: relative;
+
+      &:hover {
+        background-color: $color-link;
+        color: $while;
+      }
+
+      > .submenu-icon {
+        background-color: darken($color-link, 5%);
+        height: 100%;
+        line-height: rem(35px);
+        position: absolute;
+        right: 0;
+        text-align: center;
+        top: 0;
+        width: rem(40px);
+      }
+    }
+
+    &.current-menu-item {
+      > a {
+        background-color: $color-link;
+        color: $while;
+        padding-right: rem(40px);
+      }
+    }
+
+    &.menu-item-has-children {
+      > ul.nav-drop {
+        display: none;
+        margin-left: rem(15px);
+      }
+    }
+  }
+
+  @include breakpoint(desktop) {
+    display: block !important;
+    position: static;
+
+    > li {
+      float: left;
+    }
+  }
 }

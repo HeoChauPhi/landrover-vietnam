@@ -26,6 +26,10 @@
   }
 }
 
+@mixin arial {
+  font-family: Arial, 'Arial Unicode MS', Helvetica, Sans-Serif;
+}
+
 /* Breakpoint */
 @mixin breakpoint($point) {
   @if $point == desktop {
