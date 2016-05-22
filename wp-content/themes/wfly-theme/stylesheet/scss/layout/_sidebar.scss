@@ -1,0 +1,27 @@
+.block-sidebar {
+  margin-bottom: rem(20px);
+
+  .block-title {
+    @extend %title-dot;
+  }
+
+  .block-content {
+    padding: rem(0 10px);
+  }
+
+  .post-post {
+    @extend %clearfix;
+    margin-bottom: rem(15px);
+
+    .post-thumbnail {
+      float: left;
+      max-width: 23%;
+    }
+
+    .post-title {
+      font-size: rem(13px);
+      margin-left: 23%;
+      padding-left: rem(15px);
+    }
+  }
+}

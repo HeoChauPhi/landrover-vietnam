@@ -176,7 +176,11 @@ function acfwidget($name, $widgetid) {
 function acfobject($name, $object) {
   $field = get_field_object($name);
   $field_object = $field[$object];
-  echo $field_object;
+  if (is_array($field_object)) {
+    return $field_object;
+  } else {
+    echo $field_object;
+  }
   return;
 }
 
@@ -203,7 +207,7 @@ function taxvalue($tax) {
             $subterms2 = get_terms($tax, array('parent' => $term->term_id, 'orderby' => 'slug', 'hide_empty' => false));
 
             if (sizeof($subterms2) > 0) {
-              echo '<li class="listcat-item has-subterm"><a href="'.esc_url( get_term_link( $term ) ).'">' . $term->name . '</a><span class="icon-subterm"></span>';
+              echo '<li class="listcat-item has-subterm"><a href="'.esc_url( get_term_link( $term ) ).'">' . $term->name . '</a>';
 
               // sub term 2
               echo '<ul class="subterm">';
@@ -274,6 +278,14 @@ function wf_twig_data($data){
   $data['acfobject'] = TimberHelper::function_wrapper( 'acfobject' );
   $data['customtax'] = TimberHelper::function_wrapper( 'customtax' );
   $data['get_term_name'] = TimberHelper::function_wrapper( 'get_term_name' );
+
+  if ( post_type_exists('cars') ) {
+    global $post;
+    $field = get_field_object('car_currency');
+    //print_r($field);
+    $value = get_field('car_currency');
+    $data['currency_choices'] = $field['choices'][ $value ];
+  }
 
   return $data;
 }

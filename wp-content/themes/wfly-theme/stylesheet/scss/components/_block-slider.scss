@@ -1,0 +1,86 @@
+.block-slider {
+  position: relative;
+
+  .slick-arrow {
+    @extend .fa;
+    background-color: rgba($bg-menu, 0.8);
+    border: none;
+    cursor: pointer;
+    height: rem(40px);
+    margin-top: rem(-30px);
+    outline: none !important;
+    position: absolute;
+    text-indent: rem(-99999px);
+    top: 50%;
+    width: rem(40px);
+    z-index: 9;
+
+    &:before {
+      float: left;
+      font-size: rem(30px);
+      height: 100%;
+      line-height: rem(40px);
+      text-align: center;
+      text-indent: 0;
+      width: 100%;
+    }
+
+    &.slick-prev {
+      @extend .fa-angle-left;
+      left: 0;
+    }
+
+    &.slick-next {
+      @extend .fa-angle-right;
+      right: 0;
+    }
+  }
+
+  .slick-dots {
+    @extend %clearfix;
+    list-style: none;
+    margin: rem(10px 0);
+    text-align: right;
+
+    li {
+      @include border-radius(rem(100px));
+      background-color: $bg-menu;
+      cursor: pointer;
+      display: inline-block;
+      height: rem(16px);
+      list-style: none;
+      margin-left: rem(10px);
+      padding: rem(4px);
+      width: rem(16px);
+
+      > button {
+        @include border-radius(rem(100px));
+        background-color: $bg-menu;
+        border: none;
+        cursor: pointer;
+        height: 100%;
+        margin: 0;
+        outline: none !important;
+        padding: 0;
+        text-indent: rem(-99999px);
+        width: 100%;
+      }
+
+      &.slick-active {
+        > button {
+          background-color: $color-text;
+        }
+      }
+    }
+  }
+
+  .slider-item {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    img {
+      visibility: hidden;
+    }
+  }
+}

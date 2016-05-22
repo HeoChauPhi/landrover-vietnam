@@ -1,0 +1,29 @@
+%title-border,
+.title-border {
+  background-color: $bg-menu;
+  border-bottom: rem(2px) solid $bd-title;
+  color: $color-text;
+  display: block;
+  font-size: rem(16px);
+  font-weight: 400;
+  padding: rem(7px 10px);
+  position: relative;
+
+  a {
+    color: $color-link;
+  }
+}
+
+%title-dot,
+.title-dot {
+  @extend %title-border;
+  
+  &:before {
+    background-color: $bd-title;
+    content: "";
+    display: inline-block;
+    height: rem(12px);
+    margin-right: rem(10px);
+    width: rem(12px);
+  }
+}

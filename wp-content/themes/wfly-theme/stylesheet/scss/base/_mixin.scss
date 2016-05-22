@@ -33,9 +33,15 @@
 /* Breakpoint */
 @mixin breakpoint($point) {
   @if $point == desktop {
-    @media (min-width: $mobile + 1px) { @content ; }
+    @media (min-width: $tablet + 1px) { @content ; }
+  }
+  @else if $point == tablet {
+    @media (max-width: $tablet)  { @content ; }
   }
   @else if $point == mobile {
     @media (max-width: $mobile)  { @content ; }
+  }
+  @else if $point == minimobile {
+    @media (max-width: $minimobile)  { @content ; }
   }
 }

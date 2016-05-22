@@ -1,0 +1,60 @@
+ul.listcat-catcar {
+  list-style: none;
+
+  li {
+    list-style: none;
+
+    a {
+      display: block;
+      padding: rem(3px 0);
+    }
+
+    &.has-subterm {
+      > a {
+        padding-right: 30px;
+        position: relative;
+
+        > i {
+          background: $bg-title;
+          height: 100%;
+          line-height: 23px;
+          position: absolute;
+          right: 0;
+          text-align: center;
+          top: 0;
+          width: 30px;
+          z-index: 9;
+        }
+      }
+
+      ul.subterm {
+        display: none;
+      }
+    }
+  }
+
+  > li.listcat-item {
+    > a {
+      color: $color-text;
+      font-weight: 700;
+      text-transform: uppercase;
+
+      &:hover {
+        color: $color-link;
+      }
+    }
+
+    li {
+      border-bottom: 1px solid darken($bg-title, 10%);
+
+      &:last-of-type {
+        border: none;
+      }
+    }
+  }
+
+  ul.subterm {
+    margin-bottom: rem(5px);
+    margin-left: rem(10px);
+  }
+}

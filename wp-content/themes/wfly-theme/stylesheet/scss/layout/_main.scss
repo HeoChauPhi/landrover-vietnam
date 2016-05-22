@@ -1,0 +1,4 @@
+.block-title {
+  @extend %title-border;
+  margin-bottom: rem(10px);
+}

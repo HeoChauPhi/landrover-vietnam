@@ -24,7 +24,7 @@
       {% block feature %}
       {% endblock %}
 
-      <main role="main">
+      <main role="main" class="clearfix">
         <div class="container">
           {% if block('sidebar') %}
           <div class="main-content has-sidebar">
@@ -42,7 +42,9 @@
           <section class="sidebar-wrapper">
             {% block aside %}
               {% block sidebar %}
-                {% include 'sidebar.twig' %}
+                <aside class="sidebar-left">
+                  {% include 'sidebar.twig' %}
+                </aside>
               {% endblock %}
             {% endblock %}
           </section>

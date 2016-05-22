@@ -1,6 +1,7 @@
 #header {
   border-bottom: rem(2px) solid $bd-title;
   position: relative;
+  z-index: 10;
 }
 
 .branding {
@@ -38,15 +39,8 @@
   }
 
   #main-navigation {
-    &:after {
-      clear: both;
-      content: ".";
-      display: block;
-      height: 0;
-      line-height: 0;
-      visibility: hidden;
-    }
-  } 
+    margin-bottom: rem(10px);
+  }
 }
 
 .menu-icon {
@@ -107,6 +101,66 @@ ul.main-nav {
   top: 100%;
   width: 100%;
 
+  @include breakpoint(desktop) {
+    border-bottom: rem(2px) solid $bd-title;
+
+    &:after {
+      clear: both;
+      content: ".";
+      display: block;
+      height: 0;
+      line-height: 0;
+      visibility: hidden;
+    }
+  }
+
+  > li {
+    &.current-menu-item {
+      > a {
+        @include breakpoint(desktop) {
+          &:after {
+            content: "\f107";
+            font-family: "FontAwesome";
+            margin-left: rem(10px);
+          }
+
+          &:hover:after {
+            content: "\f106";
+          }
+        }
+      }
+      @include breakpoint(desktop) {
+        > ul.nav-drop {
+          @include transition(all 0.2s ease-in-out);
+          background-color: $bg-menu;
+          display: block !important;
+          left: 0;
+          margin: 0 !important;
+          min-width: rem(250px);
+          opacity: 0;
+          position: absolute;
+          top: 90%;
+          visibility: hidden;
+          z-index: -1;
+        }
+
+        &:hover {
+          > a {
+            background-color: $color-link;
+            color: $while;
+          }
+
+          > ul.nav-drop {
+            opacity: 1;
+            top: 100%;
+            visibility: visible;
+            z-index: 9;
+          }
+        }
+      }
+    }
+  }
+
   li {
     list-style: none;
     margin: 0;
@@ -118,6 +172,10 @@ ul.main-nav {
       display: block;
       padding: 10px 11px;
       position: relative;
+
+      @include breakpoint(desktop) {
+        padding: 10px 11px !important;
+      }
 
       &:hover {
         background-color: $color-link;
@@ -133,6 +191,10 @@ ul.main-nav {
         text-align: center;
         top: 0;
         width: rem(40px);
+
+        @include breakpoint(desktop) {
+          display: none !important;
+        }
       }
     }
 

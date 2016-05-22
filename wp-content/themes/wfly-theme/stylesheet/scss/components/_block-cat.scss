@@ -1,0 +1,95 @@
+.block-cat {
+  margin-bottom: rem(20px);
+
+  .block-content {
+    @extend %clearfix;
+    margin: -5px;
+  }
+
+  .post-inner {
+    @include border-radius(rem(3px));
+    border: 1px solid $color-text;
+  }
+
+  .post-cars {
+    float: left;
+    padding: rem(5px);
+    width: 33.33%;
+
+    @include breakpoint(mobile) {
+      width: 50%;
+    }
+
+    @include breakpoint(minimobile) {
+      width: 100%;
+    }
+
+    @include breakpoint(desktop) {
+      width: 24.9%;
+    }
+  }
+
+  .car-image {
+    cursor: pointer;
+    height: rem(180px);
+    margin: rem(3px);
+    overflow: hidden;
+    position: relative;
+
+    > .slider-item {
+      display: none;
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+
+      &:first-of-type {
+        display: block;
+      }
+    }
+
+    .slider-item {
+      @include border-radius(rem(3px 3px 0 0));
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      height: rem(180px);
+      width: 100%;
+
+      > img {
+        display: none;
+        height: 100%;
+        visibility: hidden;
+      }
+    }
+
+    &:hover {
+      .slider-item {
+        display: block;
+      }
+    }
+  }
+
+  .car-content {
+    padding: rem(0 3px 3px 3px);
+    text-align: center;
+  }
+
+  .car-title {
+    font-size: rem(14px);
+
+    &:after {
+      content: "";
+      height: 100%;
+      vertical-align: middle;
+      display: inline-block;
+      width: 0px;
+    }
+
+    a {
+      vertical-align: middle;
+      display: inline-block;
+    }
+  }
+}

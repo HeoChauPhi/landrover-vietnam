@@ -7,3 +7,22 @@
     max-width: $container;
   }
 }
+
+@include breakpoint(desktop) {
+  .main-content {
+    &.has-sidebar {
+      float: left;
+      width: 75.83333%;
+      margin-left: 24.16667%;
+      margin-right: -100%;
+    }
+  }
+
+  .sidebar-left {
+    float: left;
+    width: 24.16667%;
+    margin-left: 0%;
+    margin-right: -24.16667%;
+    padding-right: rem(10px);
+  }
+}
