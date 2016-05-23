@@ -30,6 +30,10 @@
   font-family: Arial, 'Arial Unicode MS', Helvetica, Sans-Serif;
 }
 
+@mixin digitled {
+  font-family: 'GDDigit13LED', Sans-Serif;
+}
+
 /* Breakpoint */
 @mixin breakpoint($point) {
   @if $point == desktop {

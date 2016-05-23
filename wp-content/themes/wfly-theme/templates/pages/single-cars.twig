@@ -1,24 +1,39 @@
 {% block content %}
-  <div class="post post-{{ post.post_type }}">
+  <div class="post single-post-{{ post.post_type }} clearfix">
     <div class="post-car-gallery">
-      {% for image in post.get_field('car_gallery') %}
-        <img src="{{ TimberImage(image) }}" />
-      {% endfor %}  
+      <div class="main-slick">
+        {% for image in post.get_field('car_gallery') %}
+          <div class="mainslick-item">
+            <a class="car-colorbox" href="{{ TimberImage(image) }}"><img src="{{ TimberImage(image) }}" /></a>
+          </div>
+        {% endfor %}
+      </div>
+      <div class="sub-slick">
+        {% for image in post.get_field('car_gallery') %}
+          <div class="subslick-item">
+            <div style="background-image: url('{{ TimberImage(image) }}');" class="item-inner">
+              <img src="{{ TimberImage(image) }}" />
+            </div>
+          </div>
+        {% endfor %}
+      </div>
     </div>
     <div class="post-car-header">
-      <h3><a href="{{post.link}}">{{ post.title }}</a></h3>
+      <h3 class="car-title"><a href="{{post.link}}">{{ post.title }}</a></h3>
       {% if post.car_price %}
         <div class="car-price">
-          <label>Giá: </label>{{ post.car_price }} {{ currency_choices }}
+          <label>Giá: </label><span class="car-price-total">{{ post.car_price }}</span> <span class="car-price-currency">{{ currency_choices }}</span>
         </div>
       {% else %}
-        <div class="car-price"><label>Giá: </label>Liên hệ</div>
+        <div class="car-price"><label>Giá: </label><span class="car-price-total">Liên hệ</span></div>
       {% endif %}
       {% if post.car_contact %}
         <div class="car-contact">
           <label>Liên hệ: </label>
-          <div class="car-name">{{ post.car_contact }}</div>
-          <div class="car-phone">{{ post.car_phone }}</div>
+          <div class="car-contact-inner">
+            <div class="car-name">{{ post.car_contact }}</div>
+            <div class="car-phone">{{ post.car_phone }}</div>
+          </div>
         </div>
       {% endif %}
     </div>
@@ -48,5 +63,11 @@
         {% endif %}
       </div>
     </div>
+
+    <h3 class="related-title">Sản Phẩm liên quan</h3>
+    {% for post in related('catcar') %}
+      <h4><a href="{{post.link}}">{{post.title}}</a></h4>
+      <p>{{post.content|excerpt(30)}}</p>
+    {% endfor %}
   </div>
 {% endblock %}

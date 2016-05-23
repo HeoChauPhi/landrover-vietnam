@@ -1,0 +1,174 @@
+.post-car-gallery {
+  @include breakpoint(desktop) {
+    float: left;
+    width: 70%;
+  }
+
+  .mainslick-item {
+    img {
+      width: 100%;
+    }
+  }
+
+  .sub-slick {
+    margin: rem(10px -5px);
+    position: relative;
+
+    .slick-arrow {
+      @extend .fa;
+      background-color: rgba($bg-menu, 0.8);
+      border: none;
+      cursor: pointer;
+      height: rem(40px);
+      margin-top: rem(-30px);
+      outline: none !important;
+      position: absolute;
+      text-indent: rem(-99999px);
+      top: 50%;
+      width: rem(40px);
+      z-index: 9;
+
+      &:before {
+        float: left;
+        font-size: rem(30px);
+        height: 100%;
+        line-height: rem(40px);
+        text-align: center;
+        text-indent: 0;
+        width: 100%;
+      }
+
+      &.slick-prev {
+        @extend .fa-angle-left;
+        left: rem(5px);
+      }
+
+      &.slick-next {
+        @extend .fa-angle-right;
+        right: rem(5px);
+      }
+    }
+
+    .subslick-item {
+      @include border-radius(rem(3px));
+      border: rem(1px) solid $color-border;
+      cursor: pointer;
+      margin: rem(0 5px);
+      outline: none !important;
+      overflow: hidden;
+      padding: rem(3px);
+
+      .item-inner {
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: rem(121px);
+      }
+
+      &.slick-current {
+        border-color: $bd-title;
+      }
+
+      img {
+        visibility: hidden;
+      }
+    }
+  }
+}
+
+.post-car-header {
+  margin-bottom: rem(10px);
+
+  @include breakpoint(desktop) {
+    float: right;
+    width: 29%;
+  }
+
+  .car-title {
+    font-size: rem(18px);
+    margin-bottom: rem(10px);
+  }
+
+  label {
+    font-weight: 700;
+    min-width: rem(60px);
+    display: inline-block;
+  }
+
+  .car-price {
+    margin-bottom: rem(10px);
+  }
+
+  .car-price-total {
+    color: $color-secondary;
+    font-size: rem(20px);
+    font-weight: 700;
+  }
+
+  .car-price-currency {
+    font-size: rem(18px);
+  }
+
+  .car-contact {
+    .car-contact-inner {
+      background-color: $bg-menu;
+      padding: rem(7px 10px);
+    }
+
+    .car-name,
+    .car-phone {
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .car-name {
+      color: $color-link;
+      font-size: rem(20px);
+      font-weight: 700;
+    }
+
+    .car-phone {
+      color: $color-secondary;
+      font-size: rem(18px);
+      font-weight: 700;
+    }
+  }
+}
+
+.post-car-info {
+  clear: both;
+
+  .post-car-info--title {
+    @extend %title-dot;
+    margin-bottom: rem(10px);
+    text-transform: uppercase;
+  }
+
+  .post-car-info--content {
+    .car-item {
+      border-bottom: rem(1px) solid $color-border;
+
+      &:last-of-type {
+        border-bottom: none;
+      }
+
+      label {
+        border-right: rem(1px) solid $color-border;
+        display: inline-block;
+        font-weight: 700;
+        margin-right: rem(-1px);
+        padding: rem(10px);
+        vertical-align: middle;
+        width: 25%;
+      }
+
+      span {
+        border-left: rem(1px) solid $color-border;
+        display: inline-block;
+        padding: rem(10px);
+        vertical-align: middle;
+        width: 75%;
+      }
+    }
+  }
+}

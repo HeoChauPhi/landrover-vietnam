@@ -1,16 +1,16 @@
 {% block content %}
-  <h2>{{ post.title }}</h2>
+  <h2 class="post-detail-title">{{ post.title }}</h2>
   <p class="blog-author">
-    <span>By</span><a href="{{post.author.path}}"> {{ post.author.name }} </a> - {{ post.post_date|date}}
+    <span>Đăng bởi</span><a href="{{post.author.path}}"> {{ post.author.name }} </a> - {{ post.post_date|date}}
   </p>
   
-  <div class="feature-picture">
+  <div class="post-picture">
     <img src="{{post.thumbnail.src}}" class="feature" />
   </div>
 
   {% if post.terms('category') %}
   <div class="category">
-    <label>Categorised in:</label>
+    <label>Chuyên mục:</label>
     <ul class="cat-list">
     {% for term in post.terms('category') %}
       <li><a href="{{term.link}}">{{term.name}}</a></li>
@@ -18,12 +18,14 @@
     </ul>
   </div>
   {% endif %}
-
-  {{ post.content }}
   
+  <div class="post-content">
+    {{ post.content }}  
+  </div>
+
   {% if post.terms('tags') %}
   <div class="tags">
-    <label>Tags in:</label>
+    <label>Tags:</label>
     <ul class="tag-list">
     {% for term in post.terms('tags') %}
       <li><a href="{{term.link}}">{{term.name}}</a></li>
@@ -32,11 +34,14 @@
   </div>
   {% endif %}
 
-  <h3>Related Stories With Category</h3>
-  {% for post in related('category') %}
-    <h4><a href="{{post.link}}">{{post.title}}</a></h4>
-    <p>{{post.content|excerpt(30)}}</p>
-  {% endfor %}
+  {% if related('category') %}
+    <h3 class="related-title">Bài viết cùng chuyên mục</h3>
+    <ul class="post-related">
+      {% for post in related('category') %}
+        <li><a href="{{post.link}}">{{post.title}}</a></li>
+      {% endfor %}
+    </ul>
+  {% endif %}
 
   {% include 'comments.twig' %}
   {{ function('comment_form') }}

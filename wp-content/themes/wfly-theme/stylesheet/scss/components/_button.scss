@@ -1,0 +1,13 @@
+%btn,
+.btn {
+  @include border-radius(rem(5px));
+  background-color: $bg-button;
+  border: none;
+  color: $while;
+  cursor: pointer;
+  padding: rem(7px 15px);
+
+  &:hover {
+    background-color: darken($bg-button, 5%);
+  }
+}

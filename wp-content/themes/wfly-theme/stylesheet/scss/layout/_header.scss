@@ -115,7 +115,7 @@ ul.main-nav {
   }
 
   > li {
-    &.current-menu-item {
+    &.menu-item-has-children {
       > a {
         @include breakpoint(desktop) {
           &:after {
@@ -184,6 +184,7 @@ ul.main-nav {
 
       > .submenu-icon {
         background-color: darken($color-link, 5%);
+        color: $while;
         height: 100%;
         line-height: rem(35px);
         position: absolute;

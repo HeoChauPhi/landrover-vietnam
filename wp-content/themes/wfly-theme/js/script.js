@@ -58,6 +58,34 @@
     )
   }
 
+  function slickGallery() {
+    $('.main-slick').slick({
+      adaptiveHeight: true,
+      infinite: true,
+      fade: true,
+      arrows: false,
+      //autoplay: true,
+      asNavFor: '.sub-slick',
+      lazyLoad: 'ondemand'
+      //speed: 300  
+    });
+    
+    $('.sub-slick').slick({
+      asNavFor: '.main-slick',
+      arrows: true,
+      slidesToScroll: 1,
+      //autoplay: true,
+      //speed: 300,
+      focusOnSelect: true,
+      infinite: true,
+      slidesToShow: 4
+    });
+  }
+
+  function colorboxImage() {
+    $(".car-colorbox").colorbox({rel:'group1'});
+  }
+
   function matchHeight() {
     $('.block-cat').each(function() {
       $(this).find('.post-cars .car-title').matchHeight();
@@ -70,6 +98,8 @@
     navigation();
     showCat();
     featureSlick();
+    slickGallery();
+    colorboxImage();
     matchHeight();
   });
 

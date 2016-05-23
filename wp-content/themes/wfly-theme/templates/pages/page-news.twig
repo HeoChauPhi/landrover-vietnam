@@ -1,5 +1,8 @@
 {% extends 'layout.twig' %}
 
 {% block content %}
-  {{ shortcode('[list_post post_type="post" per_page=9]') }}
+  <h1 id="page-title">{{ post.title }}</h1>
+  <div class="post-news-inner">
+    {{ shortcode('[list_post post_type="post" per_page=9]') }} 
+  </div>
 {% endblock %}

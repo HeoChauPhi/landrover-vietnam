@@ -115,14 +115,16 @@ add_shortcode( 'count_per_day', 'create_count_per_day' );
 function create_count_per_day() {
   ob_start();
     if(is_user_logged_in() && current_user_can('administrator')) {
-      echo '<div class="counter-total">'.do_shortcode("[CPD_READS_TOTAL]").'</div>';
+      echo '<div class="block-counter">';
+      echo '<div class="counter-total"><span>'.do_shortcode("[CPD_READS_TOTAL]").'</span></div>';
       echo '<ul class="counter-list">';
-      echo '<li><span>Tổng số truy cập:</span>' . do_shortcode("[CPD_READS_TOTAL]") . '</li>';
-      echo '<li><span>Truy cập hôm qua:</span>' . do_shortcode("[CPD_READS_YESTERDAY]") . '</li>';
-      echo '<li><span>Truy cập hôm nay:</span>' . do_shortcode("[CPD_READS_TODAY]") . '</li>';
+      echo '<li class="item-total"><label>Tổng số truy cập:</label><span>' . do_shortcode("[CPD_READS_TOTAL]") . '</span></li>';
+      echo '<li><label>Truy cập hôm qua:</label><span>' . do_shortcode("[CPD_READS_YESTERDAY]") . '</span></li>';
+      echo '<li><label>Truy cập hôm nay:</label><span>' . do_shortcode("[CPD_READS_TODAY]") . '</span></li>';
       echo '</ul>';
     } else {
       echo '<div class="counter-message">Vui lòng đăng nhập để sử dụng chức năng này</div>';
+      echo '</div>';
     }
     
     $content = ob_get_contents();

@@ -1,0 +1,19 @@
+#footer {
+  background-color: $bg-footer;
+  padding: rem(30px 0);
+}
+
+.footer {
+  color: $while;
+}
+
+.footer-contact,
+.footer-logo {
+  text-align: center;
+
+  @include breakpoint(desktop) {
+    display: inline-block;
+    vertical-align: middle;
+    width: 49.8%;
+  }
+}

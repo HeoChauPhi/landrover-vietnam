@@ -8,13 +8,20 @@
   }
 }
 
+.main-content {
+  &.has-sidebar {
+    margin-bottom: rem(10px);
+  }
+}
+
 @include breakpoint(desktop) {
   .main-content {
     &.has-sidebar {
       float: left;
-      width: 75.83333%;
+      margin-bottom: 0;
       margin-left: 24.16667%;
       margin-right: -100%;
+      width: 75.83333%;
     }
   }
 

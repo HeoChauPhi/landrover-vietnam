@@ -2,7 +2,7 @@
 
 {% block content %}
   {% if title is defined %}
-    <h2>{{title}}</h2>
+    <h2 id="page-title">{{title}}</h2>
   {% endif %}
   {% for post in term.get_posts({'posts_per_page': count, 'paged': paged}) %}
     {% if function('is_tag') %}

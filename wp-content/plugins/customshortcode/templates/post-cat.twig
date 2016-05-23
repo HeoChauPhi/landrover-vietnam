@@ -42,7 +42,7 @@
   {% else %}
   <div class="post post-{{ post.post_type }}">
     <div class="{{ post.post_type }}-thumbnail">
-      <img src="{{post.thumbnail.src}}" class="feature" />
+      <a href="{{post.link}}"><img src="{{post.thumbnail.src}}" class="feature" /></a>
     </div>
     <h3 class="{{ post.post_type }}-title"><a href="{{post.link}}">{{ post.title }}</a></h3>
   </div>

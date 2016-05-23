@@ -25,3 +25,55 @@
     }
   }
 }
+
+.block-counter {
+  .counter-total {
+    @include digitled;
+    font-size: rem(23px);
+    font-weight: 700;
+    letter-spacing: rem(5px);
+    margin-bottom: rem(10px);
+    text-align: center;
+
+    span {
+      background-color: $black;
+      color: $while;
+      padding: rem(0 3px);
+    }
+  }
+
+  .counter-list {
+    list-style: none;
+    margin: 0;
+
+    li {
+      list-style: none;
+      padding: rem(2px 0);
+
+      &:before {
+        bottom: rem(1px);
+        content: "\f007";
+        font-family: "FontAwesome";
+        margin-right: rem(5px);
+        position: relative;
+      }
+
+      &.item-total:before {
+        content: "\f0c0";
+      }
+
+      $color-icons: (aqua,blue,pink,chartreuse,orange,navy,plum,yellow,tomato,violet,snow,red,gray,black,brown,indigo,lime,olivedrab,skyblue,peru);
+      @for $i from 1 through 20 {
+        &:nth-of-type(#{$i}) {
+          &:before {
+            color: nth($color-icons, $i);
+          }
+        }
+      }
+
+      span {
+        float: right;
+      }
+    }
+  }
+}

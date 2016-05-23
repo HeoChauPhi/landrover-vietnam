@@ -34,3 +34,12 @@ img {
   height: auto;
   max-width: 100%;
 }
+
+ul,
+ol {
+  margin-left: 1.2em;
+}
+
+input[type*='submit'] {
+  @extend %btn;
+}

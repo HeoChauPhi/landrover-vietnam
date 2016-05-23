@@ -8,6 +8,7 @@
   font-weight: 400;
   padding: rem(7px 10px);
   position: relative;
+  text-transform: uppercase;
 
   a {
     color: $color-link;
@@ -17,6 +18,7 @@
 %title-dot,
 .title-dot {
   @extend %title-border;
+  text-transform: none;
   
   &:before {
     background-color: $bd-title;

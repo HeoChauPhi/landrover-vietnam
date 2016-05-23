@@ -15,6 +15,9 @@ function wf_conditional_scripts() {
   wp_register_script('lib-matchHeight', get_template_directory_uri() . '/js/libs/jquery.matchHeight-min.js', array('jquery'), '0.7.0');
   wp_enqueue_script('lib-matchHeight');
 
+  wp_register_script('lib-colorbox', get_template_directory_uri() . '/js/libs/jquery.colorbox.js', array('jquery'), '1.6.4');
+  wp_enqueue_script('lib-colorbox');
+
   wp_register_script('lib-slickslider', get_template_directory_uri() . '/js/libs/slick.min.js', array('jquery'), '1.6.0');
   wp_enqueue_script('lib-slickslider');
 
