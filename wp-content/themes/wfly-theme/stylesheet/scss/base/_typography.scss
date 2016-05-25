@@ -30,6 +30,10 @@ a {
   }
 }
 
+p {
+  margin-bottom: rem(12px);
+}
+
 img {
   height: auto;
   max-width: 100%;
@@ -42,4 +46,23 @@ ol {
 
 input[type*='submit'] {
   @extend %btn;
+}
+
+input[type*='text'],
+input[type*='email'],
+textarea {
+  border: rem(1px) solid $color-border;
+  padding: rem(5px 7px);
+  outline: none !important;
+
+  &:hover,
+  &:focus,
+  &:active {
+    border-color: $color-link;
+  }
+}
+
+textarea {
+  max-width: 100%;
+  width: 100%;
 }

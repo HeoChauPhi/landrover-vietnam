@@ -1,0 +1,27 @@
+article {
+  @extend %clearfix;
+  border-top: rem(1px) solid $color-border;
+  margin-bottom: rem(10px);
+  padding-top: rem(10px);
+
+  &:first-of-type {
+    border: none;
+    padding-top: 0;
+  }
+
+  .post-picture  {
+    float: left;
+    line-height: 0;
+    margin-bottom: 0;
+    width: 35%;
+
+    a {
+      display: block;
+    }
+  }
+
+  .post-content {
+    margin-left: 35%;
+    padding-left: rem(10px);
+  }
+}

@@ -1,6 +1,10 @@
 {% extends 'layout.twig' %}
 
 {% block content %}
+  <h1 id="page-title">
+    {{ post.title }}
+  </h1>
+
   {% for post in posts %}
     {{ post.content }}
   {% endfor %}
