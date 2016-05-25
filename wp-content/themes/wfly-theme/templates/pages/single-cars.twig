@@ -36,6 +36,11 @@
           </div>
         </div>
       {% endif %}
+      {% if post.get_field('car_logo') %}
+        <div class="car-logo">
+          <img src="{{ post.get_field('car_logo') }}" />
+        </div>
+      {% endif %}
     </div>
     <div class="post-car-info">
       <h3 class="post-car-info--title">Mô tả sản phẩm</h3>
