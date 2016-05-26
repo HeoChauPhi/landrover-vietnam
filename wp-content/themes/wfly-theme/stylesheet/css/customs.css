@@ -4334,7 +4334,7 @@ main {
 .block-counter .counter-total span {
   background-color: #000000;
   color: #ffffff;
-  padding: 0rem 0.1875rem;
+  padding: 0.3125rem 0.1875rem 0rem 0.1875rem;
 }
 /* line 45, ../scss/layout/_sidebar.scss */
 .block-counter .counter-list {
@@ -4445,9 +4445,10 @@ main {
 
 /* line 1, ../scss/components/_block-slider.scss */
 .block-slider {
+  overflow: hidden;
   position: relative;
 }
-/* line 4, ../scss/components/_block-slider.scss */
+/* line 5, ../scss/components/_block-slider.scss */
 .block-slider .slick-arrow {
   background-color: rgba(237, 240, 242, 0.8);
   border: none;
@@ -4461,7 +4462,7 @@ main {
   width: 2.5rem;
   z-index: 9;
 }
-/* line 18, ../scss/components/_block-slider.scss */
+/* line 19, ../scss/components/_block-slider.scss */
 .block-slider .slick-arrow:before {
   float: left;
   font-size: 1.875rem;
@@ -4471,21 +4472,33 @@ main {
   text-indent: 0;
   width: 100%;
 }
-/* line 28, ../scss/components/_block-slider.scss */
+@media (max-width: 480px) {
+  /* line 5, ../scss/components/_block-slider.scss */
+  .block-slider .slick-arrow {
+    height: 1.25rem;
+    width: 1.25rem;
+  }
+  /* line 33, ../scss/components/_block-slider.scss */
+  .block-slider .slick-arrow:before {
+    font-size: 1.25rem;
+    line-height: 1.25rem;
+  }
+}
+/* line 39, ../scss/components/_block-slider.scss */
 .block-slider .slick-arrow.slick-prev {
   left: 0;
 }
-/* line 33, ../scss/components/_block-slider.scss */
+/* line 44, ../scss/components/_block-slider.scss */
 .block-slider .slick-arrow.slick-next {
   right: 0;
 }
-/* line 39, ../scss/components/_block-slider.scss */
+/* line 50, ../scss/components/_block-slider.scss */
 .block-slider .slick-dots {
   list-style: none;
   margin: 0.625rem 0rem;
   text-align: right;
 }
-/* line 45, ../scss/components/_block-slider.scss */
+/* line 56, ../scss/components/_block-slider.scss */
 .block-slider .slick-dots li {
   -moz-border-radius: 6.25rem;
   -webkit-border-radius: 6.25rem;
@@ -4499,7 +4512,7 @@ main {
   padding: 0.25rem;
   width: 1rem;
 }
-/* line 56, ../scss/components/_block-slider.scss */
+/* line 67, ../scss/components/_block-slider.scss */
 .block-slider .slick-dots li > button {
   -moz-border-radius: 6.25rem;
   -webkit-border-radius: 6.25rem;
@@ -4514,17 +4527,18 @@ main {
   text-indent: -6249.9375rem;
   width: 100%;
 }
-/* line 70, ../scss/components/_block-slider.scss */
+/* line 81, ../scss/components/_block-slider.scss */
 .block-slider .slick-dots li.slick-active > button {
   background-color: #333333;
 }
-/* line 77, ../scss/components/_block-slider.scss */
+/* line 88, ../scss/components/_block-slider.scss */
 .block-slider .slider-item {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  position: absolute;
 }
-/* line 82, ../scss/components/_block-slider.scss */
+/* line 94, ../scss/components/_block-slider.scss */
 .block-slider .slider-item img {
   visibility: hidden;
 }
@@ -4612,7 +4626,7 @@ main {
 /* line 32, ../scss/components/_block-cat.scss */
 .block-cat .car-image {
   cursor: pointer;
-  height: 11.25rem;
+  height: 9.375rem;
   margin: 0.1875rem;
   overflow: hidden;
   position: relative;
@@ -4642,25 +4656,31 @@ main {
   width: 100%;
 }
 /* line 60, ../scss/components/_block-cat.scss */
-.block-cat .car-image .slider-item > img {
+.block-cat .car-image .slider-item a {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+/* line 66, ../scss/components/_block-cat.scss */
+.block-cat .car-image .slider-item img {
   display: none;
   height: 100%;
   visibility: hidden;
 }
-/* line 68, ../scss/components/_block-cat.scss */
+/* line 74, ../scss/components/_block-cat.scss */
 .block-cat .car-image:hover .slider-item {
   display: block;
 }
-/* line 74, ../scss/components/_block-cat.scss */
+/* line 80, ../scss/components/_block-cat.scss */
 .block-cat .car-content {
   padding: 0rem 0.1875rem 0.1875rem 0.1875rem;
   text-align: center;
 }
-/* line 79, ../scss/components/_block-cat.scss */
+/* line 85, ../scss/components/_block-cat.scss */
 .block-cat .car-title {
   font-size: 0.875rem;
 }
-/* line 82, ../scss/components/_block-cat.scss */
+/* line 88, ../scss/components/_block-cat.scss */
 .block-cat .car-title:after {
   content: "";
   height: 100%;
@@ -4668,7 +4688,7 @@ main {
   display: inline-block;
   width: 0px;
 }
-/* line 90, ../scss/components/_block-cat.scss */
+/* line 96, ../scss/components/_block-cat.scss */
 .block-cat .car-title a {
   vertical-align: middle;
   display: inline-block;
@@ -4776,6 +4796,13 @@ input[type*='submit']:hover,
   background-color: #7b8c9d;
 }
 
+@media (max-width: 480px) {
+  /* line 1, ../scss/pages/_home.scss */
+  .block-best-cars {
+    display: none;
+  }
+}
+
 /* line 1, ../scss/pages/_article.scss */
 article {
   border-top: 0.0625rem solid #E5E8EB;
@@ -4811,16 +4838,27 @@ article .post-content {
     width: 70%;
   }
 }
-/* line 8, ../scss/pages/_single-car.scss */
+/* line 7, ../scss/pages/_single-car.scss */
+.post-car-gallery .main-slick {
+  overflow: hidden;
+  position: relative;
+}
+/* line 12, ../scss/pages/_single-car.scss */
+.post-car-gallery .mainslick-item {
+  left: 0;
+  position: absolute;
+  top: 0;
+}
+/* line 17, ../scss/pages/_single-car.scss */
 .post-car-gallery .mainslick-item img {
   width: 100%;
 }
-/* line 13, ../scss/pages/_single-car.scss */
+/* line 22, ../scss/pages/_single-car.scss */
 .post-car-gallery .sub-slick {
   margin: 0.625rem -0.3125rem;
   position: relative;
 }
-/* line 17, ../scss/pages/_single-car.scss */
+/* line 26, ../scss/pages/_single-car.scss */
 .post-car-gallery .sub-slick .slick-arrow {
   background-color: rgba(237, 240, 242, 0.8);
   border: none;
@@ -4834,7 +4872,7 @@ article .post-content {
   width: 2.5rem;
   z-index: 9;
 }
-/* line 31, ../scss/pages/_single-car.scss */
+/* line 40, ../scss/pages/_single-car.scss */
 .post-car-gallery .sub-slick .slick-arrow:before {
   float: left;
   font-size: 1.875rem;
@@ -4844,15 +4882,28 @@ article .post-content {
   text-indent: 0;
   width: 100%;
 }
-/* line 41, ../scss/pages/_single-car.scss */
+@media (max-width: 480px) {
+  /* line 26, ../scss/pages/_single-car.scss */
+  .post-car-gallery .sub-slick .slick-arrow {
+    height: 1.25rem;
+    margin-top: -0.625rem;
+    width: 1.25rem;
+  }
+  /* line 55, ../scss/pages/_single-car.scss */
+  .post-car-gallery .sub-slick .slick-arrow:before {
+    font-size: 1.25rem;
+    line-height: 1.25rem;
+  }
+}
+/* line 61, ../scss/pages/_single-car.scss */
 .post-car-gallery .sub-slick .slick-arrow.slick-prev {
   left: 0.3125rem;
 }
-/* line 46, ../scss/pages/_single-car.scss */
+/* line 66, ../scss/pages/_single-car.scss */
 .post-car-gallery .sub-slick .slick-arrow.slick-next {
   right: 0.3125rem;
 }
-/* line 52, ../scss/pages/_single-car.scss */
+/* line 72, ../scss/pages/_single-car.scss */
 .post-car-gallery .sub-slick .subslick-item {
   -moz-border-radius: 0.1875rem;
   -webkit-border-radius: 0.1875rem;
@@ -4864,100 +4915,107 @@ article .post-content {
   overflow: hidden;
   padding: 0.1875rem;
 }
-/* line 61, ../scss/pages/_single-car.scss */
+/* line 81, ../scss/pages/_single-car.scss */
 .post-car-gallery .sub-slick .subslick-item .item-inner {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   height: 7.5625rem;
 }
-/* line 68, ../scss/pages/_single-car.scss */
+@media (max-width: 480px) {
+  /* line 81, ../scss/pages/_single-car.scss */
+  .post-car-gallery .sub-slick .subslick-item .item-inner {
+    height: 3.75rem;
+  }
+}
+/* line 92, ../scss/pages/_single-car.scss */
 .post-car-gallery .sub-slick .subslick-item.slick-current {
   border-color: #054D28;
 }
-/* line 72, ../scss/pages/_single-car.scss */
+/* line 96, ../scss/pages/_single-car.scss */
 .post-car-gallery .sub-slick .subslick-item img {
   visibility: hidden;
 }
 
-/* line 79, ../scss/pages/_single-car.scss */
+/* line 103, ../scss/pages/_single-car.scss */
 .post-car-header {
   margin-bottom: 0.625rem;
 }
 @media (min-width: 961px) {
-  /* line 79, ../scss/pages/_single-car.scss */
+  /* line 103, ../scss/pages/_single-car.scss */
   .post-car-header {
     float: right;
     width: 29%;
   }
 }
-/* line 87, ../scss/pages/_single-car.scss */
+/* line 111, ../scss/pages/_single-car.scss */
 .post-car-header .car-title {
   font-size: 1.125rem;
   margin-bottom: 0.625rem;
 }
-/* line 92, ../scss/pages/_single-car.scss */
+/* line 116, ../scss/pages/_single-car.scss */
 .post-car-header label {
   font-weight: 700;
   min-width: 3.75rem;
   display: inline-block;
 }
-/* line 98, ../scss/pages/_single-car.scss */
+/* line 122, ../scss/pages/_single-car.scss */
 .post-car-header .car-price {
   margin-bottom: 0.625rem;
 }
-/* line 102, ../scss/pages/_single-car.scss */
+/* line 126, ../scss/pages/_single-car.scss */
 .post-car-header .car-price-total {
   color: #DA4B38;
   font-size: 1.25rem;
   font-weight: 700;
 }
-/* line 108, ../scss/pages/_single-car.scss */
+/* line 132, ../scss/pages/_single-car.scss */
 .post-car-header .car-price-currency {
   font-size: 1.125rem;
 }
-/* line 113, ../scss/pages/_single-car.scss */
+/* line 137, ../scss/pages/_single-car.scss */
 .post-car-header .car-contact .car-contact-inner {
   background-color: #EDF0F2;
   padding: 0.4375rem 0.625rem;
 }
-/* line 118, ../scss/pages/_single-car.scss */
+/* line 142, ../scss/pages/_single-car.scss */
 .post-car-header .car-contact .car-name,
 .post-car-header .car-contact .car-phone {
   text-align: center;
   text-transform: uppercase;
 }
-/* line 124, ../scss/pages/_single-car.scss */
+/* line 148, ../scss/pages/_single-car.scss */
 .post-car-header .car-contact .car-name {
   color: #054D28;
   font-size: 1.25rem;
   font-weight: 700;
 }
-/* line 130, ../scss/pages/_single-car.scss */
+/* line 154, ../scss/pages/_single-car.scss */
 .post-car-header .car-contact .car-phone {
   color: #DA4B38;
   font-size: 1.125rem;
   font-weight: 700;
 }
 
-/* line 138, ../scss/pages/_single-car.scss */
+/* line 162, ../scss/pages/_single-car.scss */
 .post-car-info {
   clear: both;
+  margin-bottom: 0.9375rem;
 }
-/* line 141, ../scss/pages/_single-car.scss */
+/* line 166, ../scss/pages/_single-car.scss */
 .post-car-info .post-car-info--title {
   margin-bottom: 0.625rem;
   text-transform: uppercase;
 }
-/* line 148, ../scss/pages/_single-car.scss */
+/* line 173, ../scss/pages/_single-car.scss */
 .post-car-info .post-car-info--content .car-item {
   border-bottom: 0.0625rem solid #E5E8EB;
 }
-/* line 151, ../scss/pages/_single-car.scss */
+/* line 176, ../scss/pages/_single-car.scss */
 .post-car-info .post-car-info--content .car-item:last-of-type {
   border-bottom: none;
 }
-/* line 155, ../scss/pages/_single-car.scss */
+/* line 180, ../scss/pages/_single-car.scss */
 .post-car-info .post-car-info--content .car-item label {
   border-right: 0.0625rem solid #E5E8EB;
   display: inline-block;
@@ -4967,7 +5025,7 @@ article .post-content {
   vertical-align: middle;
   width: 25%;
 }
-/* line 165, ../scss/pages/_single-car.scss */
+/* line 190, ../scss/pages/_single-car.scss */
 .post-car-info .post-car-info--content .car-item span {
   border-left: 0.0625rem solid #E5E8EB;
   display: inline-block;

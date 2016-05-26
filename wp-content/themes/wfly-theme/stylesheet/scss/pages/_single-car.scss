@@ -4,7 +4,16 @@
     width: 70%;
   }
 
+  .main-slick {
+    overflow: hidden;
+    position: relative;
+  }
+
   .mainslick-item {
+    left: 0;
+    position: absolute;
+    top: 0;
+
     img {
       width: 100%;
     }
@@ -38,6 +47,17 @@
         width: 100%;
       }
 
+      @include breakpoint(mobile) {
+        height: rem(20px);
+        margin-top: rem(-10px);
+        width: rem(20px);
+
+        &:before {
+          font-size: rem(20px);
+          line-height: rem(20px);
+        }
+      }
+
       &.slick-prev {
         @extend .fa-angle-left;
         left: rem(5px);
@@ -63,6 +83,10 @@
         background-repeat: no-repeat;
         background-size: cover;
         height: rem(121px);
+
+        @include breakpoint(mobile) {
+          height: rem(60px);
+        }
       }
 
       &.slick-current {
@@ -137,6 +161,7 @@
 
 .post-car-info {
   clear: both;
+  margin-bottom: rem(15px);
 
   .post-car-info--title {
     @extend %title-dot;

@@ -17,10 +17,13 @@ $post = new TimberPost();
 $context['post'] = $post;
 $context["acf"] = get_field_objects($data["post"]->ID);
 
-/*if ( post_type_exists('cars') ) {
-  $field = get_field_object('car_currency');
-  $value = get_field('car_currency');
-  $context['currency_choices'] = $field['choices'][ $value ];
-}*/
+if (is_singular( 'cars' ) ) {
+  $field_name = "car_info";
+  $field = get_field_object($field_name);
+  $items = $field['layouts'][0]['sub_fields'];
+  $items_value = $field['value'][0];
+  $context['carinfo'] = $items;
+  $context['carinfo_value'] = $items_value;
+}
 
 Timber::render( 'single.twig', $context );

@@ -217,12 +217,12 @@ function taxvalue($tax) {
               echo '</ul></li>';
             } else {
               echo '<li class="listcat-item"><a href="'.esc_url( get_term_link( $term ) ).'">' . $term->name . '</a></li>';
-            }          
+            }
           }
         echo '</ul></li>';
       } else {
         echo '<li class="listcat-item"><a href="'.esc_url( get_term_link( $term ) ).'">' . $term->name . '</a></li>';
-      }  
+      }
     }
     echo '</ul>';
   }
@@ -230,7 +230,7 @@ function taxvalue($tax) {
 
 function customtax($customtax) {
   ob_start();
-  
+
   taxvalue($tax = $customtax);
 
   $content = ob_get_contents();
@@ -251,7 +251,7 @@ function create_customtax($attrs) {
 }
 
 function get_term_name($slug, $tax){
-  $term = get_term_by('slug', $slug, $tax); 
+  $term = get_term_by('slug', $slug, $tax);
   $term_name = array(
     array(
       'name' => $term->name,

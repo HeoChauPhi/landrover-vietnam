@@ -31,7 +31,7 @@
 
   .car-image {
     cursor: pointer;
-    height: rem(180px);
+    height: rem(150px);
     margin: rem(3px);
     overflow: hidden;
     position: relative;
@@ -57,7 +57,13 @@
       height: rem(180px);
       width: 100%;
 
-      > img {
+      a {
+        display: block;
+        height: 100%;
+        width: 100%;
+      }
+
+      img {
         display: none;
         height: 100%;
         visibility: hidden;

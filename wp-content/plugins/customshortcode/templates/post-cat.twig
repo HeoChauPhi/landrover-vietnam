@@ -14,9 +14,9 @@
         <div class="car-image">
           {% for image in post.get_field('car_gallery') %}
             <div style="background-image: url('{{ TimberImage(image) }}');" class="slider-item">
-              <img src="{{ TimberImage(image) }}" />
+              <a href="{{post.link}}"><img src="{{ TimberImage(image) }}" /></a>
             </div>
-          {% endfor %} 
+          {% endfor %}
         </div>
         <div class="car-content">
           <h3 class="car-title"><a href="{{post.link}}">{{ post.title }}</a></h3>
@@ -35,7 +35,7 @@
             <div class="car-price"><label>Giá: </label>{{ post.car_price }} {{ post.car_currency }}</div>
           {% else %}
             <div class="car-price"><label>Giá: </label>Liên hệ</div>
-          {% endif %}  
+          {% endif %}
         </div>
       </div>
     </div>

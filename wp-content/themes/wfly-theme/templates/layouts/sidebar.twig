@@ -1,5 +1,5 @@
 {% for item in acfwidget('acf_sidebars', 'wf_widget-4') %}
-  <div class="block-sidebar">
+  <div class="block-sidebar {{ item.acf_shortcode_add_class }}">
     {% if item.acf_shortcode_title %}
       <h2 class="block-title">{{ item.acf_shortcode_title }}</h2>
     {% endif %}
@@ -8,7 +8,5 @@
         {{ shortcode(item.acf_shortcode_content) }}
       </div>
     {% endif %}
-  </div>  
+  </div>
 {% endfor %}
-
-
