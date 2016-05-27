@@ -2,11 +2,13 @@
 @font-face {
   font-family: 'GDDigit13LED';
   src: url("../../fonts/GDDigit13LED.eot?v=1.0");
-  src: url("../../fonts/GDDigit13LED.eot?#iefix&v=1.0") format("embedded-opentype"), 
-       url("../../fonts/GDDigit13LED.woff2?v=1.0") format("woff2"), 
-       url("../../fonts/GDDigit13LED.woff?v=1.0") format("woff"), 
-       url("../../fonts/GDDigit13LED.ttf?v=1.0") format("truetype"), 
+  src: url("../../fonts/GDDigit13LED.eot?#iefix&v=1.0") format("embedded-opentype"),
+       url("../../fonts/GDDigit13LED.woff2?v=1.0") format("woff2"),
+       url("../../fonts/GDDigit13LED.woff?v=1.0") format("woff"),
+       url("../../fonts/GDDigit13LED.ttf?v=1.0") format("truetype"),
        url("../../fonts/GDDigit13LED.svg?v=1.0#GDDigit13LED") format("svg");
   font-weight: normal;
   font-style: normal;
 }
+
+@import url(https://fonts.googleapis.com/css?family=Lobster);

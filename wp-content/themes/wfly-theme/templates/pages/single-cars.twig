@@ -4,7 +4,9 @@
       <div class="main-slick">
         {% for image in post.get_field('car_gallery') %}
           <div class="mainslick-item">
-            <a class="car-colorbox" href="{{ TimberImage(image) }}"><img src="{{ TimberImage(image) }}" /></a>
+            {#<a class="car-colorbox" href="{{ TimberImage(image) }}">#}
+            <img src="{{ TimberImage(image) }}" />
+            {#</a>#}
           </div>
         {% endfor %}
       </div>

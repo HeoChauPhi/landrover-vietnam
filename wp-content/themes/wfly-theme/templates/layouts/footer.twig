@@ -10,7 +10,10 @@
       <div class="block-popup-footer">
         <div class="icon-popup fa fa-times">icon popup</div>
         <div class="popup-footer-content">
-          {{ acfwidget('popup_footer', 'footer_widget-2') }}
+          {% for item in acfwidget('popup_footer', 'footer_widget-2') %}
+            <h3 class="popup-title">{{ item.popup_footer_title }}</h3>
+            <div class="popup-content">{{ item.popup_footer_content }}</div>
+          {% endfor %}
         </div>
       </div>
     </div>

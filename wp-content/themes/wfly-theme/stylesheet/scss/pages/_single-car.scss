@@ -23,52 +23,6 @@
     margin: rem(10px -5px);
     position: relative;
 
-    .slick-arrow {
-      @extend .fa;
-      background-color: rgba($bg-menu, 0.8);
-      border: none;
-      cursor: pointer;
-      height: rem(40px);
-      margin-top: rem(-30px);
-      outline: none !important;
-      position: absolute;
-      text-indent: rem(-99999px);
-      top: 50%;
-      width: rem(40px);
-      z-index: 9;
-
-      &:before {
-        float: left;
-        font-size: rem(30px);
-        height: 100%;
-        line-height: rem(40px);
-        text-align: center;
-        text-indent: 0;
-        width: 100%;
-      }
-
-      @include breakpoint(mobile) {
-        height: rem(20px);
-        margin-top: rem(-10px);
-        width: rem(20px);
-
-        &:before {
-          font-size: rem(20px);
-          line-height: rem(20px);
-        }
-      }
-
-      &.slick-prev {
-        @extend .fa-angle-left;
-        left: rem(5px);
-      }
-
-      &.slick-next {
-        @extend .fa-angle-right;
-        right: rem(5px);
-      }
-    }
-
     .subslick-item {
       @include border-radius(rem(3px));
       border: rem(1px) solid $color-border;
@@ -77,6 +31,16 @@
       outline: none !important;
       overflow: hidden;
       padding: rem(3px);
+
+      .slick-arrow {
+        &.slick-prev {
+          left: rem(5px);
+        }
+
+        &.slick-next {
+          right: rem(5px);
+        }
+      }
 
       .item-inner {
         background-position: center;
@@ -96,6 +60,52 @@
       img {
         visibility: hidden;
       }
+    }
+  }
+
+  .slick-arrow {
+    @extend .fa;
+    background-color: rgba($bg-menu, 0.8);
+    border: none;
+    cursor: pointer;
+    height: rem(40px);
+    margin-top: rem(-30px);
+    outline: none !important;
+    position: absolute;
+    text-indent: rem(-99999px);
+    top: 50%;
+    width: rem(40px);
+    z-index: 9;
+
+    &:before {
+      float: left;
+      font-size: rem(30px);
+      height: 100%;
+      line-height: rem(40px);
+      text-align: center;
+      text-indent: 0;
+      width: 100%;
+    }
+
+    @include breakpoint(mobile) {
+      height: rem(20px);
+      margin-top: rem(-10px);
+      width: rem(20px);
+
+      &:before {
+        font-size: rem(20px);
+        line-height: rem(20px);
+      }
+    }
+
+    &.slick-prev {
+      @extend .fa-angle-left;
+      left: 0;
+    }
+
+    &.slick-next {
+      @extend .fa-angle-right;
+      right: 0;
     }
   }
 }
@@ -141,7 +151,6 @@
 
     .car-name,
     .car-phone {
-      text-align: center;
       text-transform: uppercase;
     }
 
@@ -155,6 +164,10 @@
       color: $color-secondary;
       font-size: rem(18px);
       font-weight: 700;
+
+      a {
+        color: $color-secondary;
+      }
     }
   }
 }

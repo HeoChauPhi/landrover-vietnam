@@ -14,6 +14,10 @@
   }
 }
 
+main {
+  padding-top: rem(10px);
+}
+
 @include breakpoint(desktop) {
   .main-content {
     &.has-sidebar {

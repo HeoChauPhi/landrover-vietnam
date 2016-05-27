@@ -34,6 +34,10 @@
   font-family: 'GDDigit13LED', Sans-Serif;
 }
 
+@mixin lobster {
+  font-family: 'Lobster', cursive;
+}
+
 /* Breakpoint */
 @mixin breakpoint($point) {
   @if $point == desktop {

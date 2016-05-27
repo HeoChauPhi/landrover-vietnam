@@ -8,12 +8,14 @@ $gray-8a: #8A99A8;
 // Main color
 $blue: #054D28;
 $red: #DA4B38;
+$pink: #FEFFED;
 $black: #000000;
 $while: #ffffff;
 
 // Valur color
 $color-primary: $blue;
 $color-secondary: $red;
+$color-third: $pink;
 $color-page-title: $color-secondary;
 $color-text: $gray-33;
 $color-link: $color-primary;
@@ -26,3 +28,4 @@ $bg-footer: $gray-30;
 $bg-button: $gray-8a;
 $bg-title: $gray-ed;
 $bd-title: $color-primary;
+$bg-popup: $color-third;
