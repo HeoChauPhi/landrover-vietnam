@@ -1,7 +1,21 @@
 #header {
+  background-color: $while;
   border-bottom: rem(2px) solid $bd-title;
   position: relative;
   z-index: 10;
+
+  &.fixed {
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 999999;
+
+    @include breakpoint(desktop) {
+      position: relative !important;
+      z-index: 1;
+    }
+  }
 }
 
 .branding {

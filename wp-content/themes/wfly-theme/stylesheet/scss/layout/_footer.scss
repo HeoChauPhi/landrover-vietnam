@@ -17,3 +17,67 @@
     width: 49.8%;
   }
 }
+
+.block-popup-footer {
+  @include box-shadow($color-text rem(0px 0px 10px 1px));
+  @include transition(all 0.5s ease);
+  background-color: $bg-menu;
+  bottom: 10%;
+  left: 0;
+  padding: rem(20px 10px);
+  position: fixed;
+  z-index: 9;
+
+  @include breakpoint(desktop) {
+    bottom: -100%;
+
+    &.showpopup {
+      bottom: 10%;
+    }
+  }
+
+  &.close {
+    @include box-shadow(none);
+
+    .icon-popup {
+      background-color: $bg-menu;
+      border-radius: 0;
+      border: none;
+      height: rem(30px);
+      left: 100%;
+      right: auto;
+      width: rem(30px);
+
+      &:before {
+        line-height: rem(30px);
+      }
+    }
+  }
+
+  .icon-popup {
+    border-radius: rem(100px);
+    border: rem(2px) solid $color-text;
+    cursor: pointer;
+    height: rem(20px);
+    position: absolute;
+    right: 0;
+    text-align: center;
+    text-indent: rem(-99999px);
+    top: 0;
+    width: rem(20px);
+
+    &:before {
+      color: $color-text;
+      float: left;
+      height: 100%;
+      line-height: rem(16px);
+      text-indent: 0;
+      width: 100%;
+    }
+  }
+
+  p {
+    margin-bottom: 0;
+  }
+}
+
