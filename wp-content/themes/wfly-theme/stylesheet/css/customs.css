@@ -4743,7 +4743,7 @@ main {
 /* line 32, ../scss/components/_block-cat.scss */
 .block-cat .car-image {
   cursor: pointer;
-  height: 9.375rem;
+  height: 7.8125rem;
   margin: 0.1875rem;
   overflow: hidden;
   position: relative;
@@ -4769,7 +4769,7 @@ main {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 11.25rem;
+  height: 7.8125rem;
   width: 100%;
 }
 /* line 60, ../scss/components/_block-cat.scss */
